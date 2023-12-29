@@ -1,13 +1,14 @@
-name: release-spy
+name: tags
 on:
-  release:
-    
+  push:
+    tags:
+      - '*'
 jobs:
 
-  spy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      
+           
       - name: 🤘 Checkout
         uses: actions/checkout@v3
       
@@ -15,4 +16,4 @@ jobs:
         run: |
           echo "*** github.ref: ${{ github.ref }}"
           echo "*** github.event_name: ${{ github.event_name }}"
-          echo "*** github.event.release.name: ${{ github.event.release.name }}"
+          echo "*** github.event.ref: ${{ github.event.ref }}"
