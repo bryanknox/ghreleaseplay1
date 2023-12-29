@@ -12,7 +12,13 @@ jobs:
       
       - name: 🤘 Checkout
         uses: actions/checkout@v3
-      
+                    
+      - name: 📢 Output info
+        run: |
+          echo "*** github.ref: ${{ github.ref }}"
+          echo "*** github.event_name: ${{ github.event_name }}"
+          echo "*** github.event.ref: ${{ github.event.ref }}"
+
       - name: 🙏 Build
         run: echo ${{ github.sha }} > CommitSha.txt
       
