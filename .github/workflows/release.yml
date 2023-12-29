@@ -1,0 +1,17 @@
+name: release-spy
+on:
+  release:
+    
+jobs:
+
+  spy:
+    runs-on: ubuntu-latest
+    steps:
+      
+      - name: 🤘 Checkout
+        uses: actions/checkout@v2
+      
+      - name: 📢 Output info
+        run: |
+          echo "*** github.event.release.name: ${{ github.event.release.name }}"
+          echo "*** github.ref: ${{ github.ref }}"

@@ -1,0 +1,27 @@
+name: ci/cd
+on:
+  push:
+    
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      
+      - name: 🤘 Checkout
+        uses: actions/checkout@v2
+      
+      - name: 🙏 Build
+        run: echo ${{ github.sha }} > CommitSha.txt
+      
+      - name: 🧪 Test
+        run: cat CommitSha.txt
+
+      - name: 🚀 Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            Content.txt
+            CommitSha.txt
+            LICENSE
