@@ -14,5 +14,12 @@ jobs:
       - name: 📢 Output info
         run: |
           echo "*** github.ref: ${{ github.ref }}"
+          echo "*** github.ref_type: ${{ github.ref_type }}"
+          echo "*** github.ref_name: ${{ github.ref_name }}"
           echo "*** github.event_name: ${{ github.event_name }}"
+          echo "*** github.event.action (release type): ${{ github.event.action }}"
           echo "*** github.event.release.name: ${{ github.event.release.name }}"
+          echo "*** github.event.release.tag_name: ${{ github.event.release.tag_name }}"
+          echo "*** github.event.release.draft: ${{ github.event.release.draft }}"
+          echo "*** github.event.release.prerelease: ${{ github.event.release.prerelease }}"
+          echo "*** github.event.release.url: ${{ github.event.release.url }}"
